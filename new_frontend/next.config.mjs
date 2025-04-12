@@ -20,21 +20,14 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    domains: ['railway.app'],
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
-    ],
-    loader: 'default',
+    loader: 'custom',
+    loaderFile: './lib/cloudflare-image-loader.js',
   },
   experimental: {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
-  output: 'standalone',
 }
 
 if (userConfig) {
