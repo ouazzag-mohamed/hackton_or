@@ -194,28 +194,61 @@ export default function ChatbotWidget() {
   // Toggle full page mode
   const toggleFullPageMode = () => {
     setIsFullPage(!isFullPage);
-  };
+  };  // Messages for the rotating label in different languages
+  const labelMessages = [
+    { text: "Need guidance? Ask me! 🎓", lang: "en" },
+    { text: "Besoin d'aide? Demandez-moi! 📚", lang: "fr" },
+    { text: "تحتاج توجيه؟ اسألني! 🌟", lang: "ar" }
+  ];
+  const [labelIndex, setLabelIndex] = useState(0);
+  
+  // Auto-rotate languages in the label
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLabelIndex((prevIndex) => (prevIndex + 1) % labelMessages.length);
+    }, 3000); // Change every 3 seconds
+    
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
-      {/* Chatbot Icon */}
-      <button
-        onClick={() => setIsOpen(true)}
-        className={cn(
-          "fixed bottom-5 right-5 z-50 rounded-full shadow-lg transition-all duration-300",
-          "bg-white border border-emerald-500 hover:scale-110",
-          isOpen ? "opacity-0 pointer-events-none" : "opacity-100",
-          "w-14 h-14 overflow-hidden p-0"
-        )}
-        aria-label="Open chat"
-      >
-        <Image 
-          src="https://img.freepik.com/premium-vector/bot-icon-chatbot-icon-concept-vector-illustration_230920-1327.jpg"
-          alt="IRCHAD Assistant AI"
-          width={56}
-          height={56}
-          className="object-cover"
-        />
-      </button>
+      {/* Chatbot Icon with animated label above it */}
+      <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end">
+        <div 
+          className={cn(
+            "bg-emerald-500 text-white px-3 py-1.5 rounded-lg mb-2 shadow-md text-sm font-medium transition-all duration-300",
+            isOpen ? "opacity-0 pointer-events-none" : "opacity-100"
+          )}
+          style={{ 
+            direction: labelMessages[labelIndex].lang === "ar" ? "rtl" : "ltr",
+            minWidth: "180px",
+            textAlign: labelMessages[labelIndex].lang === "ar" ? "right" : "left"
+          }}
+        >
+          <div className="animate-fadeIn">
+            {labelMessages[labelIndex].text}
+          </div>
+        </div>
+        <button
+          onClick={() => setIsOpen(true)}
+          className={cn(
+            "rounded-full shadow-lg transition-all duration-300",
+            "bg-white border border-emerald-500 hover:scale-110",
+            isOpen ? "opacity-0 pointer-events-none" : "opacity-100",
+            "w-14 h-14 overflow-hidden p-0"
+          )}
+          aria-label="Open chat"
+        >
+          <Image 
+            src="https://img.freepik.com/premium-vector/bot-icon-chatbot-icon-concept-vector-illustration_230920-1327.jpg"
+            alt="IRCHAD Assistant AI"
+            width={56}
+            height={56}
+            className="object-cover"
+          />
+        </button>
+      </div>
         {/* Chatbot Window */}
       <div
         className={cn(
