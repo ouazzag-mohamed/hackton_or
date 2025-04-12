@@ -1,0 +1,50 @@
+export const en = {
+  general: {
+    appTitle: "Morocco Educational Orientation System",
+    startQuiz: "Start Orientation Quiz",
+    continueQuiz: "Continue",
+    submitAnswer: "Submit Answer",
+    loading: "Loading...",
+    restart: "Start Over",
+    error: "An error occurred",
+    tryAgain: "Try Again",
+    switchLanguage: "Change Language",
+    languageName: "English",
+  },
+  quiz: {
+    profileQuestion: {
+      name: "What is your name?",
+      location: "Where are you located in Morocco?",
+      educationLevel: "What is your current education level?",
+      hobbies: "What are your hobbies and activities? (List a few separated by commas)",
+      academicInterests: "What academic subjects are you most interested in? (List a few separated by commas)",
+    },
+    educationLevelOptions: [
+      "Middle School / College",
+      "1ère Année Bac",
+      "2ème Année Bac", 
+      "Baccalaureate Graduate",
+      "University Undergraduate",
+      "University Graduate"
+    ],
+    progress: "Question {{current}} of {{total}}",
+  },
+  report: {
+    title: "Your Educational Orientation Report",
+    overview: "Overview",
+    primaryTrack: "Primary Educational Track",
+    secondaryTrack: "Secondary Educational Track",
+    strengths: "Your Strengths",
+    areasToImprove: "Areas to Improve",
+    recommendedPrograms: "Recommended Programs",
+    recommendedUniversities: "Recommended Universities",
+    schoolRecommendations: "School Recommendations",
+    matchScore: "Match Score",
+    location: "Location",
+    programs: "Programs",
+    admissionRequirements: "Admission Requirements",
+    analysis: "Detailed Analysis",
+    statisticalAnalysis: "Statistical Analysis",
+    downloadReport: "Download Report",
+  }
+};

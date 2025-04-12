@@ -1,0 +1,50 @@
+export const fr = {
+  general: {
+    appTitle: "Système d'Orientation Éducative du Maroc",
+    startQuiz: "Commencer le Quiz d'Orientation",
+    continueQuiz: "Continuer",
+    submitAnswer: "Soumettre la Réponse",
+    loading: "Chargement...",
+    restart: "Recommencer",
+    error: "Une erreur s'est produite",
+    tryAgain: "Réessayer",
+    switchLanguage: "Changer de Langue",
+    languageName: "Français",
+  },
+  quiz: {
+    profileQuestion: {
+      name: "Quel est votre nom?",
+      location: "Où êtes-vous situé au Maroc?",
+      educationLevel: "Quel est votre niveau d'éducation actuel?",
+      hobbies: "Quels sont vos loisirs et activités? (Listez-en quelques-uns séparés par des virgules)",
+      academicInterests: "Quelles matières académiques vous intéressent le plus? (Listez-en quelques-unes séparées par des virgules)",
+    },
+    educationLevelOptions: [
+      "Collège",
+      "1ère Année Bac",
+      "2ème Année Bac",
+      "Bachelier",
+      "Étudiant Universitaire",
+      "Diplômé Universitaire"
+    ],
+    progress: "Question {{current}} sur {{total}}",
+  },
+  report: {
+    title: "Votre Rapport d'Orientation Éducative",
+    overview: "Aperçu",
+    primaryTrack: "Filière Éducative Principale",
+    secondaryTrack: "Filière Éducative Secondaire",
+    strengths: "Vos Points Forts",
+    areasToImprove: "Domaines à Améliorer",
+    recommendedPrograms: "Programmes Recommandés",
+    recommendedUniversities: "Universités Recommandées",
+    schoolRecommendations: "Recommandations d'Écoles",
+    matchScore: "Score de Correspondance",
+    location: "Emplacement",
+    programs: "Programmes",
+    admissionRequirements: "Conditions d'Admission",
+    analysis: "Analyse Détaillée",
+    statisticalAnalysis: "Analyse Statistique",
+    downloadReport: "Télécharger le Rapport",
+  }
+};

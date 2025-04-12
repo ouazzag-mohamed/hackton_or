@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Guidance Chatbot</title>
+    <link rel="stylesheet" href="chatbot.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Tajawal:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="theme-blue">
+    <!-- Animated background -->
+    <div class="bg-animation">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+    <div class="container">
+        <div class="sidebar info-panel">
+            <div class="sidebar-header">
+                <h2>Academic Guidance</h2>
+                <button class="collapse-btn" title="Close panel"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="sidebar-content">
+                <div class="language-selector">
+                    <h3>Language / اللغة</h3>
+                    <div class="lang-buttons">
+                        <button class="lang-btn active tooltip" data-tooltip="English" data-lang="en">English</button>
+                        <button class="lang-btn tooltip" data-tooltip="French" data-lang="fr">Français</button>
+                        <button class="lang-btn tooltip" data-tooltip="Arabic" data-lang="ar">العربية</button>
+                    </div>
+                </div>
+                
+                <div class="info-section">
+                    <h3>Pathways</h3>
+                    <ul class="info-links">
+                        <li><a href="#" class="pathway-link" data-path="scientific"><i class="fas fa-flask"></i> Scientific Bac</a></li>
+                        <li><a href="#" class="pathway-link" data-path="literary"><i class="fas fa-book"></i> Literary Bac</a></li>
+                        <li><a href="#" class="pathway-link" data-path="economics"><i class="fas fa-chart-line"></i> Economics & Management</a></li>
+                        <li><a href="#" class="pathway-link" data-path="tech"><i class="fas fa-microchip"></i> Science & Technology</a></li>
+                    </ul>
+                </div>
+                
+                <div class="info-section">
+                    <h3>Quick Info</h3>
+                    <ul class="info-links">
+                        <li><a href="#" class="info-link"><i class="fas fa-university"></i> Top Universities in Morocco</a></li>
+                        <li><a href="#" class="info-link"><i class="fas fa-globe"></i> International Study Options</a></li>
+                        <li><a href="#" class="info-link"><i class="fas fa-clipboard-list"></i> Admission Requirements</a></li>
+                        <li><a href="#" class="info-link"><i class="fas fa-award"></i> Scholarship Opportunities</a></li>
+                    </ul>
+                </div>
+                
+                <div class="memory-controls">
+                    <h3>Chat Controls</h3>
+                    <button id="new-chat" class="memory-btn"><i class="fas fa-plus"></i> New Chat</button>
+                    <button id="memory-status" class="memory-btn"><i class="fas fa-database"></i> Memory Status</button>
+                    <button id="clear-memory" class="memory-btn"><i class="fas fa-trash"></i> Clear Memory</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="logo">
+                    <div class="rotating-cap">
+                        <div class="cap-3d">
+                            <div class="cap-face"><i class="fas fa-graduation-cap"></i></div>
+                        </div>
+                    </div>
+                    <h1> IRCHAD Assistant</h1>
+                </div>
+            </div>
+            
+            <div class="chat-messages" id="messages">
+                <!-- Messages will be added here by JavaScript -->
+                <div class="message-row bot">
+                    <div class="avatar">
+                        <img src="https://img.freepik.com/premium-vector/bot-icon-chatbot-icon-concept-vector-illustration_230920-1327.jpg" alt="Bot Avatar">
+                    </div>
+                    <div class="message">
+                        <div class="message-content">
+                            <p>Hello! I am your expert academic guidance counselor for Morocco. How can I help you today?</p>
+                        </div>
+                        <div class="message-time">12:00</div>
+                        <div class="message-feedback">
+                            <button class="feedback-btn like tooltip" data-tooltip="Helpful"><i class="fas fa-thumbs-up"></i></button>
+                            <button class="feedback-btn dislike tooltip" data-tooltip="Not helpful"><i class="fas fa-thumbs-down"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pathway-visualization" style="display: none;">
+                <div class="pathway-steps">
+                    <div class="pathway-step">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Middle School</div>
+                    </div>
+                    <div class="pathway-step">
+                        <div class="step-number">2</div>
+                        <div class="step-label">High School</div>
+                    </div>
+                    <div class="pathway-step">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Baccalaureate</div>
+                    </div>
+                    <div class="pathway-step">
+                        <div class="step-number">4</div>
+                        <div class="step-label">Higher Education</div>
+                    </div>
+                </div>
+                <div class="pathway-details">
+                    Select a pathway to see detailed information about educational options.
+                </div>
+            </div>
+            
+            <div class="suggested-questions">
+                <span class="suggestion-chip"><i class="fas fa-question-circle"></i> How to apply to universities?</span>
+                <span class="suggestion-chip"><i class="fas fa-school"></i> Tell me about Baccalaureate options</span>
+                <span class="suggestion-chip"><i class="fas fa-plane-departure"></i> Study abroad opportunities</span>
+                <span class="suggestion-chip"><i class="fas fa-money-bill-wave"></i> Scholarship programs</span>
+            </div>
+            
+            <div class="chat-input">
+                <textarea id="user-input" placeholder="Type your question here..." rows="1"></textarea>
+                <button id="send-btn" class="tooltip" data-tooltip="Send message">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            
+            <div class="chat-footer">
+                <p>© 2025 IRCHAD Assistant | Powered by AI</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="chatbot.js"></script>
+</body>
+</html>

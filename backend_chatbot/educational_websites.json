@@ -1,0 +1,116 @@
+{
+  "educational_services": [
+    {
+      "name": "Cursus International Study",
+      "website": "https://cursus.ma/",
+      "description": "Education consulting agency with 20+ years of experience helping Moroccan and sub-Saharan students study abroad. Offers document translation, university admission, visa procedures, accommodation assistance, and recruitment services.",
+      "category": "International Study Agency",
+      "country": "Morocco",
+      "languages": ["Arabic", "French"]
+    },
+    {
+      "name": "AMIT Group",
+      "website": "https://amitgroup.fr/",
+      "description": "French business school with programs in management and technology at BTS, Bachelor's, and Master's levels. Campus in Saint-Ouen-sur-Seine, France. QUALIOPI certified for training and apprenticeship programs.",
+      "category": "French Educational Institution",
+      "country": "France",
+      "languages": ["French"]
+    },
+    {
+      "name": "LIL Global Education Services",
+      "website": "https://lilglobal.co.uk/",
+      "description": "UK-based education agency with operations in Morocco. British Council certified agent offering university placement services in UK, USA, Australia, Canada, and Ireland. Provides comprehensive support from application to settlement.",
+      "category": "International Study Agency",
+      "country": "United Kingdom",
+      "languages": ["English", "French", "Arabic"]
+    },
+    {
+      "name": "Istanbul Foundation",
+      "website": "https://istanbul-foundation.com/",
+      "description": "Educational foundation specialized in facilitating study opportunities in Turkey. Works with 298+ partner universities, handling all admission processes for Arab students seeking higher education in Turkey.",
+      "category": "International Study Agency",
+      "country": "Turkey",
+      "languages": ["Arabic", "Turkish", "English"]
+    },
+    {
+      "name": "EduRussia/RACUS",
+      "website": "https://edurussia.ru/",
+      "description": "Organization specialized in facilitating admission to Russian universities, particularly for medicine and engineering programs. Operates since 1991 with 77 representative offices worldwide and partnerships with numerous Russian state universities.",
+      "category": "International Study Agency",
+      "country": "Russia",
+      "languages": ["Russian", "English", "French", "Arabic"]
+    },
+    {
+      "name": "Ajyal Edu",
+      "website": "https://ajyaledu.com/",
+      "description": "Educational orientation service for Moroccan students, providing guidance for higher education opportunities.",
+      "category": "Educational Guidance Service",
+      "country": "Morocco",
+      "languages": ["Arabic", "French"]
+    },
+    {
+      "name": "Redream",
+      "website": "https://redream.ma/",
+      "description": "Agency specialized in facilitating study opportunities in China specifically for Moroccan students. Offers complete guidance from application to arrival in China.",
+      "category": "International Study Agency",
+      "country": "Morocco",
+      "languages": ["Arabic", "French"]
+    },
+    {
+      "name": "Tawjih Ba3d LBac",
+      "website": "https://tawjihba3dlbac.ma/",
+      "description": "Post-baccalaureate guidance service with 13+ years of experience helping Moroccan students access higher education. Offers different subscription packages for various academic streams.",
+      "category": "Educational Guidance Service",
+      "country": "Morocco",
+      "languages": ["Arabic", "French"]
+    },
+    {
+      "name": "Tawjeeh Sup",
+      "website": "https://tawjeehsup.ma/",
+      "description": "Specialized in helping students apply to 44 grandes écoles in Morocco 'with one click.' Handles registration processes for entrance exams and provides a mobile app for tracking applications.",
+      "category": "Educational Guidance Service",
+      "country": "Morocco",
+      "languages": ["Arabic", "French"]
+    },
+    {
+      "name": "EPS Education",
+      "website": "https://www.epseducation.ma/",
+      "description": "Moroccan education agency with offices in Marrakech, Agadir, and Casablanca. Helps students study abroad in UK, France, Canada, Poland, Spain, and Belgium through consultation, university selection, and visa preparation.",
+      "category": "International Study Agency",
+      "country": "Morocco",
+      "languages": ["French", "Arabic"]
+    },
+    {
+      "name": "EFET Maroc",
+      "website": "https://www.efetmaroc.com/",
+      "description": "French technical education institute with 5 campuses in Morocco, 50 years of experience, and 35,000 alumni. Offers programs in commerce, management, finance, IT, logistics, and healthcare from technician to Master's level.",
+      "category": "French Educational Institution",
+      "country": "Morocco",
+      "languages": ["French", "Arabic"]
+    },
+    {
+      "name": "Institut français du Maroc",
+      "website": "https://if-maroc.org/",
+      "description": "Official French cultural and educational institution in Morocco. Provides French language courses and certifications (DELF, DALF, TCF, TEF), cultural events, resources, and support for study in France.",
+      "category": "French Educational Institution",
+      "country": "Morocco",
+      "languages": ["French", "Arabic"]
+    },
+    {
+      "name": "Sigma Orientation",
+      "website": "https://sigmaorientation.com/",
+      "description": "Specialized in preparation for entrance exams to Morocco's grandes écoles. Offers different packages for science, economics, and technical streams with complete follow-up services for applications.",
+      "category": "Educational Guidance Service",
+      "country": "Morocco",
+      "languages": ["French", "Arabic"]
+    },
+    {
+      "name": "Al Jisr Tawjih",
+      "website": "https://aljisrtawjih.com/",
+      "description": "Educational orientation service helping Moroccan students navigate higher education options and entrance exam applications.",
+      "category": "Educational Guidance Service",
+      "country": "Morocco",
+      "languages": ["Arabic", "French"]
+    }
+  ]
+}
