@@ -1,0 +1,21 @@
+{
+  "name": "irchad-app",
+  "version": "1.0.0",
+  "description": "Educational guidance platform",
+  "main": "index.js",
+  "scripts": {
+    "start": "node backend_chatbot/server.js",
+    "build": "cd new_frontend && npm install && npm run build",
+    "dev": "cd new_frontend && npm run dev"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "keywords": [
+    "education",
+    "guidance",
+    "Morocco"
+  ],
+  "author": "",
+  "license": "ISC"
+}

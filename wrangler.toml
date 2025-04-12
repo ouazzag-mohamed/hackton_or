@@ -1,15 +1,15 @@
-# Cloudflare Worker configuration
+# Cloudflare Pages configuration
 name = "hackton-or"
 compatibility_date = "2023-12-01"
 compatibility_flags = ["nodejs_compat"]
 
-# Specify Node.js compatibility
-[build.upload]
-format = "service-worker"
+# Specify output directory for Cloudflare Pages
+pages_build_output_dir = "new_frontend/.next"
 
 # Set Node.js version to 18.18.0 (which meets Next.js requirements)
 [build]
 command = "npm run build"
+
 [build.environment]
 NODE_VERSION = "18.18.0"
 
