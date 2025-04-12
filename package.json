@@ -1,0 +1,17 @@
+{
+  "name": "irchad-app",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "new_frontend",
+    "backend_chatbot"
+  ],
+  "scripts": {
+    "build": "cd new_frontend && npm install && npm run build",
+    "start": "cd new_frontend && npm start",
+    "start:backend": "cd backend_chatbot && node server.js"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
