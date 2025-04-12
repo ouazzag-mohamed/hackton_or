@@ -3,9 +3,10 @@ import Link from "next/link"
 import Image from "next/image"
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, Bell, Search, Moon, Sun, UserCircle, LogOut } from "lucide-react"
+import { Menu, X, Bell, Search, Moon, Sun, UserCircle, LogOut, Newspaper } from "lucide-react"
 import { useAuth } from "@/context/AuthContext"
 import { usePathname } from "next/navigation"
+import { getLatestArticles } from "@/data/newsData"
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -103,6 +104,7 @@ const Navbar = () => {
           {[
             { name: "Home", href: "/" },
             { name: "AI Analyste", href: isAuthenticated ? "/ai-analyst" : "/login?redirect=/ai-analyst" },
+            { name: "News", href: "/news" },
             { name: "Communauté", href: "/community" },
           ].map((item, i) => (
             <motion.div
