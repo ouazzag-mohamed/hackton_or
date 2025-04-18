@@ -151,10 +151,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 clearMemory: "مسح الذاكرة"
             },
             suggestions: {
-                apply: "كيفية التقديم للجامعات؟",
-                baccalaureate: "أخبرني عن خيارات الباكالوريا",
-                abroad: "فرص الدراسة في الخارج",
-                scholarship: "برامج المنح الدراسية"
+                apply: "كيف يمكنني التقديم للجامعات المغربية؟",
+                baccalaureate: "ما هي مسارات الباكالوريا المتاحة؟",
+                abroad: "أريد معلومات عن الدراسة في الخارج",
+                scholarship: "أخبرني عن فرص المنح الدراسية المتاحة"
             },
             pathwayVisualization: {
                 middleSchool: "المدرسة الإعدادية",

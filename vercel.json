@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "new_frontend/package.json",
+      "use": "@vercel/next"
+    },
+    {
+      "src": "backend_chatbot/server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "backend_chatbot/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "new_frontend/$1"
+    }
+  ]
+}

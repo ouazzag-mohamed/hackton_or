@@ -3,14 +3,37 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const fs = require('fs-extra');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 const { initializeAgent, processUserQuery, detectLanguage } = require('./guidance_agent');
+
+// Using JWT secret from environment or default
+const JWT_SECRET = process.env.JWT_SECRET || 'supersecretkey';
+
+// In-memory user storage (replace with DB later)
+const users = new Map(); // username -> { username, passwordHash }
 
 // Create Express server
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Middleware
-app.use(cors());
+// Add Vercel-specific settings
+const isProduction = process.env.NODE_ENV === 'production';
+const isPreviews = process.env.VERCEL_ENV === 'preview';
+const isDevelopment = !isProduction && !isPreviews;
+
+// Handle CORS more flexibly
+const corsOptions = {
+  origin: isDevelopment 
+    ? ['http://localhost:3000', 'http://localhost:3001'] 
+    : [process.env.FRONTEND_URL, 'https://*.vercel.app'],
+  credentials: true,
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+// Use CORS with options
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, './')));
 
@@ -85,8 +108,49 @@ async function initialize() {
   }
 }
 
+// JWT middleware
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+  if (!token) return res.status(401).json({ error: 'Missing token' });
+  jwt.verify(token, JWT_SECRET, (err, user) => {
+    if (err) return res.status(403).json({ error: 'Invalid token' });
+    req.user = user;
+    next();
+  });
+}
+
+// Registration endpoint
+app.post('/api/register', async (req, res) => {
+  const { username, password } = req.body;
+  if (!username || !password) {
+    return res.status(400).json({ error: 'Username and password required' });
+  }
+  if (users.has(username)) {
+    return res.status(409).json({ error: 'Username already exists' });
+  }
+  const passwordHash = await bcrypt.hash(password, 10);
+  users.set(username, { username, passwordHash });
+  res.json({ success: true, message: 'User registered successfully' });
+});
+
+// Login endpoint
+app.post('/api/login', async (req, res) => {
+  const { username, password } = req.body;
+  const user = users.get(username);
+  if (!user) {
+    return res.status(401).json({ error: 'Invalid credentials' });
+  }
+  const valid = await bcrypt.compare(password, user.passwordHash);
+  if (!valid) {
+    return res.status(401).json({ error: 'Invalid credentials' });
+  }
+  const token = jwt.sign({ username }, JWT_SECRET, { expiresIn: '2h' });
+  res.json({ token });
+});
+
 // API endpoint for chat
-app.post('/api/chat', async (req, res) => {
+app.post('/api/chat', authenticateToken, async (req, res) => {
   try {
     const { query, language, sessionId } = req.body;
     
@@ -143,7 +207,7 @@ app.post('/api/chat', async (req, res) => {
 });
 
 // Endpoint for memory status
-app.get('/api/memory', (req, res) => {
+app.get('/api/memory', authenticateToken, (req, res) => {
   const { sessionId } = req.query;
   
   if (!sessionId || !sessions.has(sessionId)) {
@@ -165,7 +229,7 @@ app.get('/api/memory', (req, res) => {
 });
 
 // Endpoint to clear memory
-app.post('/api/memory/clear', (req, res) => {
+app.post('/api/memory/clear', authenticateToken, (req, res) => {
   const { sessionId } = req.body;
   
   if (sessionId && sessions.has(sessionId)) {

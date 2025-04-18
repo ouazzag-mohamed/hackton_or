@@ -1,0 +1,15 @@
+{
+  "name": "hachton-or",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "new_frontend",
+    "backend_chatbot"
+  ],
+  "scripts": {
+    "dev:frontend": "cd new_frontend && npm run dev",
+    "dev:backend": "cd backend_chatbot && npm run dev",
+    "build": "cd new_frontend && npm run build",
+    "start": "cd new_frontend && npm run start"
+  }
+}
